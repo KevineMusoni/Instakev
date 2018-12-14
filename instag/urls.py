@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns=[
     url('^$',views.welcome,name = 'welcome'),
+    url('^insta/$',views.insta,name='insta')
 ]

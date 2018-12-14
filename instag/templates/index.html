@@ -1,0 +1,12 @@
+{%extends 'all-news/base.html'%}
+{% load bootstrap3 %}
+<div class="container-fluid">
+
+    <form action="{%url 'newsToday'%}" method="post">
+        {%csrf_token%}
+
+        {% bootstrap_form letterForm layout='inline' %}
+        <input type="submit" value="Subscribe">
+    </form>
+
+</div>
