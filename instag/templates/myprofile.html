@@ -40,17 +40,11 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#saved" data-toggle="tab" role="tab" aria-controls="saved" aria-selected="false">
-                Saved
-            </a>
         </li>
     </ul>
     <div class="tab-content row col-12" id="myContent">
         <div class="tab-pane fade show active" id="posts" role="tabpanel">
             {% include 'posts.html' with user_images=user_images %}
-        </div>
-        <div class="tab-pane fade" id="saved" role="tabpanel">
-            {% include 'posts.html' with user_images=user_saved %}
         </div>
                 </div>
             </div>

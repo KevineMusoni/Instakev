@@ -24,7 +24,6 @@ def mine(request):
     images = request.user.profile.posts.all()
     user_object = request.user
     user_images = user_object.profile.posts.all()
-    user_saved = [save.photo for save in user_object.profile.saves.all()]
     return render(request, 'myprofile.html', locals())
 
 

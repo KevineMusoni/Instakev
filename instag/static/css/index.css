@@ -1,24 +1,14 @@
 body{
-	background-color: #fafafa!important;
+	background-color:white;
     padding-top: 4.5rem;
 }
 .navbar{
     background-color: white;
 }
-.instaglyph{
-    display: inline-block;
-    background-image: url(/static/img/868a059b8fc8.png);
-    margin: 8px;
-}
 .image{
     background-position: -98px -150px;
     height: 51px;
     width: 175px;
-}
-.disc{
-    background-position: -458px -250px;
-    width: 24px;
-    height: 24px;
 }
 .like{
     background-position: -458px -328px;
@@ -37,7 +27,7 @@ body{
     height: 35px;
     width: 176px;
 }
-.mainicon{
+.gicon{
     background-position: -401px -388px;
     height: 30px;
     width: 30px;
@@ -65,7 +55,7 @@ body{
 .card-body{
     padding-bottom: 0!important;
 }
-.likeheart{
+.like{
     background-position: -300px 0;
     height: 81px;
     width: 92px;
@@ -267,13 +257,9 @@ input[id^=id_image]{
     display: none;
 }
 .uploaddiv{
-    padding: 0px 8px;
-    font-family: FontAwesome;
-    color: white;
-    background-color: #38d451;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 25pt;
+    font-size: 15px;
 }
 @media only screen and (max-width: 450px){
     .post{

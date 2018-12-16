@@ -7,9 +7,9 @@ async function nowsleep(x) {
 document.onscroll = () => {
     if (document.body.scrollTop > 100) {
         $("#brand").removeClass("logo");
-        $("#brand").addClass("mainicon");
+        $("#brand").addClass("gicon");
     } else {
-        $("#brand").removeClass("mainicon");
+        $("#brand").removeClass("gicon");
         $("#brand").addClass("logo");
     }
 };
@@ -53,12 +53,6 @@ togglefollow = (id) => {
             following.removeClass("d-none");
             follow.addClass("d-none")
         }
-    });
-};
-togglesave = (id) => {
-    $.get('/save/' + id, () => {
-        let anim = $("#saveicon" + id);
-        anim.toggleClass("saved");
     });
 };
 function chelewa() {
