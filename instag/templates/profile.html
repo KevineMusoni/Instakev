@@ -34,18 +34,10 @@
                 Posts
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#liked" data-toggle="tab" role="tab" aria-controls="liked" aria-selected="false">
-                Liked
-            </a>
-        </li>
     </ul>
     <div class="tab-content row col-12" id="myContent">
         <div class="tab-pane fade show active" id="posts" role="tabpanel">
             {% include 'posts.html' with user_images=user_images %}
-        </div>
-        <div class="tab-pane fade" id="liked" role="tabpanel">
-            {% include 'posts.html' with user_images=user_liked %}
         </div>
     </div>
 </div>

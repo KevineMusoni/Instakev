@@ -25,8 +25,6 @@ def mine(request):
     user_object = request.user
     user_images = user_object.profile.posts.all()
     user_saved = [save.photo for save in user_object.profile.saves.all()]
-    user_liked = [like.photo for like in user_object.profile.mylikes.all()]
-    print(user_liked)
     return render(request, 'myprofile.html', locals())
 
 
@@ -55,7 +53,6 @@ def user(request, user_id):
         return redirect('myaccount')
     isfollowing = user_object.profile not in request.user.profile.follows
     user_images = user_object.profile.posts.all()
-    user_liked = [like.photo for like in user_object.profile.mylikes.all()]
     return render(request, 'profile.html', locals())
 
 
