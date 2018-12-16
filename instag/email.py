@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 def send_welcome_email(name,receiver):
     # Creating message subject and sender
     subject = 'Welcome to Instagram'
+    # personal email
     sender = 'musoni.kev@gmail.com'
 
     #passing in the context vairables
