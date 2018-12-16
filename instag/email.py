@@ -4,10 +4,10 @@ from django.template.loader import render_to_string
 def send_welcome_email(name,receiver):
     # Creating message subject and sender
     subject = 'Welcome to Instagram'
-    # personal email
+    # my email
     sender = 'musoni.kev@gmail.com'
 
-    #passing in the context vairables
+    #passing in the context variables
     text_content = render_to_string('email/email.txt',{"name": name})
     html_content = render_to_string('email/email.html',{"name": name})
 
