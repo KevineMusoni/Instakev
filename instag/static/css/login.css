@@ -19,10 +19,6 @@ body{
   margin: auto;
   text-align: center;
 }
-.instaicon{
-    display: inline-block;
-    background-image: url(/static/img/96319a506a03.png);
-}
 .icon{
     background-position: -98px -150px;
     height: 51px;
