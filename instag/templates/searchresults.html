@@ -1,0 +1,25 @@
+<div class="linkerwrap">
+    <div class="linker"></div>
+</div>
+<div class="searchresults">
+    {% for result in results %}
+    <div class="searchresult">
+        <a href="{%  url 'aboutuser' user_id=result.user.id %}" class="resa">
+            <img src="{{result.profile_picture.url}}" class="rounded-circle resimage" width="32" height="32">
+            <div class="details">
+                <div><strong>{{result.user.username}}</strong></div>
+                <span>{{result.Name}}</span>
+            </div>
+        </a>
+    </div>
+    {% empty %}
+    <div class="searchresult">
+        <div class="resa">
+            <div class="details">
+                <div>No Results Found</div>
+                <span>{{result.Name}}</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

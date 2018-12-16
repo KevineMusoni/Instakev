@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load utils %}
+{% block content %}
+<div class="row userbody">
+    <div id="userdetails" class="row col-12 mb-2">
+        <div class="col-sm-4">
+            <img src="{{user_object.profile.profile_picture.url}}" width="152" height="152" class="rounded-circle border userimage">
+        </div>
+        <div class="col-sm-8">
+            <div style="margin-bottom: 20px;">
+                <h3 style="vertical-align: middle">{{user_object.username}}</h3>
+                <button id="follow" class="editbtn {% if not isfollowing %}d-none{% endif %} btn-primary" onclick="togglefollow({{user_object.id}})">
+                    <span class="edittext">Follow</span>
+                </button>
+                <button id="follown" class="btn {% if isfollowing %}d-none{% endif %} followbtn" onclick="togglefollow({{user_object.id}})">
+                    <span class="edittext">Following</span>
+                </button>
+            </div>
+            <div style="margin-bottom: 11px;">
+                <span class="info"><strong>{{ user_object.profile.posts.count }}</strong> posts</span>
+                <span class="info"><strong id="followers">{{ user_object.profile.followers.count }}</strong> followers</span>
+                <span class="info"><strong id="following">{{ user_object.profile.following.count }}</strong> following</span>
+            </div>
+            <div>
+                <strong>{{ user_object.profile.Name }}</strong>
+            </div>
+            <div><span>{{ user_object.profile.bio }}</span></div>
+        </div>
+    </div>
+    <ul class="nav" id="my" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" href="#posts" data-toggle="tab" role="tab" aria-controls="posts" aria-selected="true">
+                Posts
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#liked" data-toggle="tab" role="tab" aria-controls="liked" aria-selected="false">
+                Liked
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content row col-12" id="myContent">
+        <div class="tab-pane fade show active" id="posts" role="tabpanel">
+            {% include 'posts.html' with user_images=user_images %}
+        </div>
+        <div class="tab-pane fade" id="liked" role="tabpanel">
+            {% include 'posts.html' with user_images=user_liked %}
+        </div>
+    </div>
+</div>
+{% endblock %}

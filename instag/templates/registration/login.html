@@ -3,16 +3,16 @@
 {% load static %}
 {% block content %}
 <div class="login-clean">
-    <div class="invitation"></div>
-    <form action="/accounts/register/" method="post">
+    <form action="/accounts/login/" method="post">
         {% csrf_token %}
         {% bootstrap_form form%}
+        <input type="hidden" name="next" value="/">
         <div class="form-group" style="text-align: center">
-            <input type="submit" class="btn btn-primary btn-sm" value="Signup">
-            <div class="invite" style="margin:0 0 5px 0;">
-                Do you have an account?
-                <a href="/accounts/login">Login</a>
-            </div>
+            <input type="submit" class="btn btn-primary btn-sm" value="Login">
+        </div>
+        <div class="invite" style="margin:0 0 5px 0;">
+            Dont have an account?
+            <a href="/accounts/register">Sign up</a>
         </div>
         <input type="hidden" name="next" value="{{next}}">
     </form>

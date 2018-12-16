@@ -1,12 +1,77 @@
-{%extends 'all-news/base.html'%}
-{% load bootstrap3 %}
-<div class="container-fluid">
-
-    <form action="{%url 'newsToday'%}" method="post">
-        {%csrf_token%}
-
-        {% bootstrap_form letterForm layout='inline' %}
-        <input type="submit" value="Subscribe">
-    </form>
-
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load utils %}
+{% block content %}
+<div class="row">
+    <div id="images" class="col-md-8 col-12">
+        <form action="/" method="post" enctype="multipart/form-data" class="card form-inline">
+            {% csrf_token %}
+            {{ image_form.image }}
+            <div class="uploaddiv">
+                <span class="fa-upload" onclick='$("#id_image").click()'></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-sm" value="Upload">
+            </div>
+        </form>
+        {% for image in images %}
+        <div class="card">
+            <div class="card-body">
+                <div class="card-title">
+                    <img src="{{image.user.profile_picture.url}}" class="rounded-circle border" alt="{{image.user.user.username}}"
+                        width="30" height="30">
+                    <a href="{% url 'aboutuser' user_id=image.user.user.id %}">
+                        <strong style="color: #333333;cursor: pointer">{{image.user.user.username}}</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="card-text">
+                <div style="background-image: url({{image.image.url}});background-size: contain;position: sticky"
+                    ondblclick="like({{image.id}})">
+                    <img src="{{image.image.url}}" style="visibility: hidden;" width="100%" />
+                    <span class="likeheart instaicon" id="likeheart{{image.id}}"></span>
+                </div>
+            </div>
+            <div style="padding: 0 16px;">
+                <div class="wrapper" onclick="choose({{image.id}})">
+                    <span class="{% if user.profile|has_liked:image %}loved{% endif %} love instaglyph" id="likeicon{{image.id}}"></span>
+                </div>
+                <div class="wrapper">
+                    <span class="comment instaglyph"></span>
+                </div>
+                <div class="wrapper pull-right" onclick="togglesave({{image.id}})">
+                    <span class="{% if user.profile|has_saved:image %}saved{% endif %} save instaglyph" id="saveicon{{image.id}}"></span>
+                </div>
+                <div>
+                    <strong><span id="likespan{{image.id}}">{{image.count_likes}}</span>
+                        like{{image.count_likes|pluralize}}</strong>
+                </div>
+                {% if image.get_comments %}
+                <div style="border-bottom: solid 1px #bbb;"></div>
+                {% endif %}
+                {% for comment in image.get_comments|slice:"8" %}
+                <p>
+                    <strong>{{comment.user.user.username}}</strong> {{comment.text}}
+                </p>
+                {% endfor %}
+                <form action="{% url 'comment' post_id=image.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="getinput" id="comment{{image.id}}">
+                        {{commentform.text}}
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="card-body col-md-4 d-none d-md-block" id="stories">
+        <div class="card-title">
+            <img src="{{user.profile.profile_picture.url}}" class="rounded-circle border" alt="{{user.username}}" width="50"
+                height="50">
+            <a href="{% url 'aboutuser' user_id=user.id %}">
+                <strong style="color: #333333;cursor: pointer">{{user.username}}</strong>
+            </a>
+        </div>
+    </div>
 </div>
+{% endblock %}

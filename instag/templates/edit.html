@@ -1,0 +1,15 @@
+{%extends "base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div class="loginform">
+    <form action="{%  url 'edit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form new_profile %}
+        <div class="form-group" style="text-align: center">
+            <input type="submit" class="btn btn-primary btn-sm" value="Update">
+        </div>
+    </form>
+</div>
+</div>
+{% endblock %}
