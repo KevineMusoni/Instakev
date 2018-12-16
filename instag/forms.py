@@ -14,6 +14,7 @@ class ProfileForm(forms.ModelForm):
         self.fields['Name'].widget=forms.TextInput()
     class Meta:
         model = Profile
+        # userprofile arguments 
         fields = ('Name','profile_picture','bio' )
 
 
