@@ -14,7 +14,7 @@ document.onscroll = () => {
     }
 };
 choose = (id) => {
-    if ($("#likeicon" + id).hasClass("loved")) {
+    if ($("#likeicon" + id).hasClass("love")) {
         return unlike(id)
     }
     like(id)
@@ -25,7 +25,7 @@ like = (id) => {
         anim.show(300);
         nowsleep(600).then(() => {
             anim.hide(50);
-            $("#likeicon" + id).addClass("loved")
+            $("#likeicon" + id).addClass("love")
             $("#likespan" + id).text(newlikes)
         }
         )
@@ -34,7 +34,7 @@ like = (id) => {
 unlike = (id) => {
     $.get('/unlike/' + id, (newlikes) => {
         nowsleep(600).then(() => {
-            $("#likeicon" + id).removeClass("loved");
+            $("#likeicon" + id).removeClass("love");
             $("#likespan" + id).text(newlikes)
         }
         )
