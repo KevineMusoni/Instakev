@@ -6,9 +6,9 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    Name = models.TextField(default="Anonymous")
+    Name = models.TextField(default="my name")
     profile_picture = models.ImageField(upload_to='users/', default='users/user.png')
-    bio = models.TextField(default="Welcome Me!")
+    bio = models.TextField(default="my bio")
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
