@@ -10,7 +10,7 @@ document.onscroll = () => {
         $("#brand").addClass("gicon");
     } else {
         $("#brand").removeClass("gicon");
-        $("#brand").addClass("logo");
+        $("#brand").addClas0s("logo");
     }
 };
 choose = (id) => {
@@ -27,6 +27,7 @@ like = (id) => {
             anim.hide(50);
             $("#likeicon" + id).addClass("loved")
             $("#likespan" + id).text(newlikes)
+            console.log("yay");
         }
         )
     });
@@ -55,7 +56,7 @@ togglefollow = (id) => {
         }
     });
 };
-function chelewa() {
+function searching() {
     userinput.toggleClass('loading');
     return nowsleep(100).then(() => {
         userinput.toggleClass('loading');
@@ -73,7 +74,7 @@ $(document).ready(() => {
             plc.hide();
             return
         }
-        chelewa().then(() => {
+        searching().then(() => {
             $.get('/search/' + key, '', function (data) {
                 plc.show();
                 place.empty();

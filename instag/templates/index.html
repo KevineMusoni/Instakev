@@ -35,7 +35,8 @@
                     <span class="comment instaglyph"></span>
                 </div>
                 <div>
-                    <strong><span id="likespan{{image.id}}">{{image.count_likes}}</span>
+                    <!-- <button id="likeheart">like</button> -->
+                    <strong><button onclick={{image.id}}>{{image.count_likes}}</button>
                         like{{image.count_likes|pluralize}}</strong>
                 </div>
                 {% if image.get_comments %}
