@@ -1,7 +1,7 @@
 # Instakev
 A clone of Instagram photo application
  ## Setup/Installation Requirements 
-Deployed Link:
+Deployed Link:http://instakevy.herokuapp.com/ ,
 Github link :https://github.com/KevineMusoni/Instakev.git
  ## Installing Dependencies
 pip3 install -r requirements.txt
