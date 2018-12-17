@@ -30,8 +30,7 @@ like = (id) => {
             $("#likeicon" + id).addClass("loved")
             $("#likespan" + id).text(newlikes)
             console.log("yay");
-        }
-        )
+        })
     });
 };
 unlike = (id) => {

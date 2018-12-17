@@ -15,6 +15,5 @@ urlpatterns = [
     url(r'^follow_or_not/(?P<user_id>\d+)$', views.togglefollow, name='follow_or_not'),
     url(r'^unlike/(?P<post_id>\d+)$', views.unlike, name='unlike')
 ]
-
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
