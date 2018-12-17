@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-ALLOWED_HOSTS='https://insta-manka.herokuapp.com'
+ALLOWED_HOSTS='https://instakevy.herokuapp.com'
 MODE=config("MODE", default="dev")
 
 
@@ -123,10 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 

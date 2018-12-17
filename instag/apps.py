@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class InstagConfig(AppConfig):
-    name = 'instag'
+class InstaConfig(AppConfig):
+    name = 'insta'
