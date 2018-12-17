@@ -25,18 +25,18 @@
             </div>
             <div class="card-text">
                 <div style="background-image: url({{image.image.url}});background-size: contain;position: sticky"
-                    ondblclick="like({{image.id}})">
+                    onclick="like({{image.id}})">
                     <img src="{{image.image.url}}" style="visibility: hidden;" width="100%" />
                     <span class="likeheart" id="likeheart{{image.id}}"></span>
                 </div>
             </div>
             <div style="padding: 0 16px;">
                 <div class="wrapper">
-                    <span class="comment instaglyph"></span>
+                    <span class="commentinstaglyph"></span>
                 </div>
                 <div>
-                    <!-- <button id="likeheart">like</button> -->
-                    <strong><button onclick={{image.id}}>{{image.count_likes}}</button>
+                    <button onclick="like(9)">like</button>
+                    <strong><span id="likespan{{image.id}}">{{image.count_likes}}</span>
                         like{{image.count_likes|pluralize}}</strong>
                 </div>
                 {% if image.get_comments %}

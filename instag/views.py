@@ -27,7 +27,7 @@ def mine(request):
     return render(request, 'myprofile.html', locals())
 
 
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/accoun+ts/login/')
 def edit(request):
     if request.method == 'POST':
         print(request.FILES)
