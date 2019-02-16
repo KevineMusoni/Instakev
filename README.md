@@ -7,9 +7,6 @@ Github link :https://github.com/KevineMusoni/Instakev.git
 pip3 install -r requirements.txt
  ## Running the server
 ./start.sh
- ### Administration details
-admin name: kevine ,
-admin password: 2001.kevi.
  ### User Stories
 * Sign in to the application to start using.
 * Upload my pictures to the application.
